@@ -43,8 +43,8 @@ export const Navbar = () => {
             onClick={() => scrollToSection("#home")}
             className="font-display text-2xl md:text-3xl tracking-widest"
           >
-            <span className={scrolled ? "text-foreground" : "text-hero-foreground"}>LENS</span>
-            <span className="text-primary">.</span>
+            <span className={scrolled ? "text-foreground" : "text-hero-foreground"}>TD</span>
+            <span className="text-primary"> PHOTOGRAPHY</span>
           </button>
 
           {/* Desktop Navigation */}
