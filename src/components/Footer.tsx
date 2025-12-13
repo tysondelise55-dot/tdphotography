@@ -17,9 +17,9 @@ export const Footer = () => {
           {/* Logo */}
           <button
             onClick={() => scrollToSection("#home")}
-            className="font-display text-3xl tracking-widest"
+            className="font-display text-2xl md:text-3xl tracking-widest"
           >
-            LENS<span className="text-primary">.</span>
+            TD<span className="text-primary"> PHOTOGRAPHY</span>
           </button>
 
           {/* Navigation */}
@@ -55,7 +55,7 @@ export const Footer = () => {
 
         <div className="border-t border-background/20 mt-8 pt-8 text-center">
           <p className="font-body text-sm text-background/60">
-            © {currentYear} LENS Photography. All rights reserved.
+            © {currentYear} TD Photography. All rights reserved.
           </p>
         </div>
       </div>

@@ -61,15 +61,13 @@ export const Contact = () => {
                 <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-primary-foreground" />
                 </div>
-                <div>
                   <p className="font-display text-lg text-foreground tracking-wider">Email</p>
                   <a 
-                    href="mailto:contact@lensphotography.com" 
+                    href="mailto:contact@tdphotography.com" 
                     className="font-body text-muted-foreground hover:text-primary transition-colors"
                   >
-                    contact@lensphotography.com
+                    contact@tdphotography.com
                   </a>
-                </div>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-foreground rounded-lg flex items-center justify-center flex-shrink-0">
