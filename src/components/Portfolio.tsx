@@ -2,19 +2,11 @@ import { useState } from "react";
 import { X } from "lucide-react";
 
 import basketballImg from "@/assets/portfolio-basketball.jpg";
-import soccerImg from "@/assets/portfolio-soccer.jpg";
 import footballImg from "@/assets/portfolio-football.jpg";
-import baseballImg from "@/assets/portfolio-baseball.jpg";
-import trackImg from "@/assets/portfolio-track.jpg";
-import tennisImg from "@/assets/portfolio-tennis.jpg";
 
 const photos = [
   { id: 1, src: basketballImg, alt: "Basketball slam dunk action shot", category: "Basketball" },
-  { id: 2, src: soccerImg, alt: "Soccer player powerful kick", category: "Soccer" },
-  { id: 3, src: footballImg, alt: "Football quarterback throwing pass", category: "Football" },
-  { id: 4, src: baseballImg, alt: "Baseball batter swing moment", category: "Baseball" },
-  { id: 5, src: trackImg, alt: "Track sprinter explosive start", category: "Track" },
-  { id: 6, src: tennisImg, alt: "Tennis player serving", category: "Tennis" },
+  { id: 2, src: footballImg, alt: "Football quarterback throwing pass", category: "Football" },
 ];
 
 export const Portfolio = () => {
