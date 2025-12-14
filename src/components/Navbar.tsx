@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Instagram } from "lucide-react";
-import { Button } from "@/components/ui/button";
+
+import tdLogoLight from "@/assets/td-logo-light.png";
+import tdLogoDark from "@/assets/td-logo-dark.png";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -41,10 +43,13 @@ export const Navbar = () => {
           {/* Logo */}
           <button
             onClick={() => scrollToSection("#home")}
-            className="font-display text-2xl md:text-3xl tracking-widest"
+            className="flex items-center"
           >
-            <span className={scrolled ? "text-foreground" : "text-hero-foreground"}>TD</span>
-            <span className="text-primary"> PHOTOGRAPHY</span>
+            <img
+              src={scrolled ? tdLogoLight : tdLogoDark}
+              alt="TD Photography"
+              className="h-8 md:h-10 w-auto"
+            />
           </button>
 
           {/* Desktop Navigation */}
