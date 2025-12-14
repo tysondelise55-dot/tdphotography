@@ -1,26 +1,11 @@
 import { Camera, Zap, Heart } from "lucide-react";
-
 export const About = () => {
-  return (
-    <section id="about" className="py-20 md:py-32 bg-muted">
+  return <section id="about" className="py-20 md:py-32 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Stats / Visual Side */}
           <div className="order-2 lg:order-1">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-background p-6 md:p-8 rounded-lg shadow-sm">
-                <p className="font-display text-5xl md:text-6xl text-primary">50+</p>
-                <p className="font-body text-sm text-muted-foreground mt-2">Games Covered</p>
-              </div>
-              <div className="bg-background p-6 md:p-8 rounded-lg shadow-sm">
-                <p className="font-display text-5xl md:text-6xl text-foreground">3</p>
-                <p className="font-body text-sm text-muted-foreground mt-2">Years Experience</p>
-              </div>
-              <div className="bg-foreground p-6 md:p-8 rounded-lg shadow-sm col-span-2">
-                <p className="font-display text-4xl md:text-5xl text-background">6</p>
-                <p className="font-body text-sm text-background/70 mt-2">Sports I Shoot</p>
-              </div>
-            </div>
+            
           </div>
 
           {/* Content Side */}
@@ -76,6 +61,5 @@ export const About = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
