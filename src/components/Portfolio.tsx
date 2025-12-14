@@ -1,18 +1,21 @@
 import { useState } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
-import basketballImg from "@/assets/portfolio-basketball.jpg";
+import basketballDunk from "@/assets/basketball-dunk.jpg";
+import basketballAura from "@/assets/basketball-aura.jpg";
+import basketballWarmup from "@/assets/basketball-warmup.jpg";
+import basketballWalkout from "@/assets/basketball-walkout.jpg";
 
 // Gallery images for basketball category
 const basketballGallery = [
-  { id: 1, src: basketballImg, alt: "Basketball slam dunk action shot" },
-  { id: 2, src: basketballImg, alt: "Basketball player shooting three pointer" },
-  { id: 3, src: basketballImg, alt: "Basketball fast break moment" },
-  { id: 4, src: basketballImg, alt: "Basketball defensive block" },
+  { id: 1, src: basketballDunk, alt: "Basketball slam dunk action shot" },
+  { id: 2, src: basketballAura, alt: "Basketball player on court" },
+  { id: 3, src: basketballWarmup, alt: "Basketball warmup session" },
+  { id: 4, src: basketballWalkout, alt: "Player walkout introduction" },
 ];
 
 const categories = [
-  { id: 1, name: "Basketball", coverImg: basketballImg, gallery: basketballGallery },
+  { id: 1, name: "Basketball", coverImg: basketballDunk, gallery: basketballGallery },
 ];
 
 export const Portfolio = () => {
