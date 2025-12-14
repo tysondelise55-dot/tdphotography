@@ -2,11 +2,9 @@ import { useState } from "react";
 import { X } from "lucide-react";
 
 import basketballImg from "@/assets/portfolio-basketball.jpg";
-import footballImg from "@/assets/portfolio-football.jpg";
 
 const photos = [
   { id: 1, src: basketballImg, alt: "Basketball slam dunk action shot", category: "Basketball" },
-  { id: 2, src: footballImg, alt: "Football quarterback throwing pass", category: "Football" },
 ];
 
 export const Portfolio = () => {
