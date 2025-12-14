@@ -1,5 +1,7 @@
 import { Instagram } from "lucide-react";
 
+import tdLogoDark from "@/assets/td-logo-dark.png";
+
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -17,9 +19,13 @@ export const Footer = () => {
           {/* Logo */}
           <button
             onClick={() => scrollToSection("#home")}
-            className="font-display text-2xl md:text-3xl tracking-widest"
+            className="flex items-center"
           >
-            TD<span className="text-primary"> PHOTOGRAPHY</span>
+            <img
+              src={tdLogoDark}
+              alt="TD Photography"
+              className="h-8 md:h-10 w-auto"
+            />
           </button>
 
           {/* Navigation */}
