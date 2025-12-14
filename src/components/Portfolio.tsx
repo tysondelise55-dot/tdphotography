@@ -1,14 +1,47 @@
 import { useState } from "react";
-import { X } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 import basketballImg from "@/assets/portfolio-basketball.jpg";
 
-const photos = [
-  { id: 1, src: basketballImg, alt: "Basketball slam dunk action shot", category: "Basketball" },
+// Gallery images for basketball category
+const basketballGallery = [
+  { id: 1, src: basketballImg, alt: "Basketball slam dunk action shot" },
+  { id: 2, src: basketballImg, alt: "Basketball player shooting three pointer" },
+  { id: 3, src: basketballImg, alt: "Basketball fast break moment" },
+  { id: 4, src: basketballImg, alt: "Basketball defensive block" },
+];
+
+const categories = [
+  { id: 1, name: "Basketball", coverImg: basketballImg, gallery: basketballGallery },
 ];
 
 export const Portfolio = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState<typeof photos[0] | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<typeof categories[0] | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const openGallery = (category: typeof categories[0]) => {
+    setSelectedCategory(category);
+    setCurrentIndex(0);
+  };
+
+  const closeGallery = () => {
+    setSelectedCategory(null);
+    setCurrentIndex(0);
+  };
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedCategory) {
+      setCurrentIndex((prev) => (prev + 1) % selectedCategory.gallery.length);
+    }
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (selectedCategory) {
+      setCurrentIndex((prev) => (prev - 1 + selectedCategory.gallery.length) % selectedCategory.gallery.length);
+    }
+  };
 
   return (
     <section id="portfolio" className="py-20 md:py-32 bg-background">
@@ -25,25 +58,28 @@ export const Portfolio = () => {
 
         {/* Photo Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {photos.map((photo, index) => (
+          {categories.map((category, index) => (
             <div
-              key={photo.id}
-              className={`portfolio-card aspect-[4/5] opacity-0 animate-fade-up`}
+              key={category.id}
+              className={`portfolio-card aspect-[4/5] opacity-0 animate-fade-up cursor-pointer`}
               style={{ 
                 animationFillMode: 'forwards',
                 animationDelay: `${index * 0.1}s`
               }}
-              onClick={() => setSelectedPhoto(photo)}
+              onClick={() => openGallery(category)}
             >
               <img
-                src={photo.src}
-                alt={photo.alt}
+                src={category.coverImg}
+                alt={`${category.name} photography`}
                 className="w-full h-full object-cover"
                 loading="lazy"
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 z-10 opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
                 <p className="font-display text-xl text-hero-foreground tracking-wider">
-                  {photo.category}
+                  {category.name}
+                </p>
+                <p className="font-body text-sm text-hero-foreground/70 mt-1">
+                  {category.gallery.length} photos
                 </p>
               </div>
             </div>
@@ -51,28 +87,54 @@ export const Portfolio = () => {
         </div>
       </div>
 
-      {/* Lightbox */}
-      {selectedPhoto && (
+      {/* Gallery Lightbox */}
+      {selectedCategory && (
         <div 
           className="fixed inset-0 z-50 bg-hero/95 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in"
-          onClick={() => setSelectedPhoto(null)}
+          onClick={closeGallery}
         >
+          {/* Close button */}
           <button
-            className="absolute top-4 right-4 text-hero-foreground hover:text-primary transition-colors"
-            onClick={() => setSelectedPhoto(null)}
-            aria-label="Close lightbox"
+            className="absolute top-4 right-4 text-hero-foreground hover:text-primary transition-colors z-20"
+            onClick={closeGallery}
+            aria-label="Close gallery"
           >
             <X className="w-8 h-8" />
           </button>
+
+          {/* Previous button */}
+          <button
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-hero-foreground hover:text-primary transition-colors z-20 p-2"
+            onClick={prevImage}
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-10 h-10" />
+          </button>
+
+          {/* Current image */}
           <img
-            src={selectedPhoto.src}
-            alt={selectedPhoto.alt}
-            className="max-w-full max-h-[90vh] object-contain animate-scale-in"
+            src={selectedCategory.gallery[currentIndex].src}
+            alt={selectedCategory.gallery[currentIndex].alt}
+            className="max-w-full max-h-[80vh] object-contain animate-scale-in"
             onClick={(e) => e.stopPropagation()}
           />
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+
+          {/* Next button */}
+          <button
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-hero-foreground hover:text-primary transition-colors z-20 p-2"
+            onClick={nextImage}
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-10 h-10" />
+          </button>
+
+          {/* Image counter and category */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">
             <p className="font-display text-2xl text-hero-foreground tracking-wider">
-              {selectedPhoto.category}
+              {selectedCategory.name}
+            </p>
+            <p className="font-body text-sm text-hero-foreground/70 mt-2">
+              {currentIndex + 1} / {selectedCategory.gallery.length}
             </p>
           </div>
         </div>
