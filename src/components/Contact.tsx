@@ -13,7 +13,8 @@ export const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    inquiryType: "",
+    serviceType: "",
+    sport: "",
     message: ""
   });
   const handleSubmit = async (e: React.FormEvent) => {
@@ -29,7 +30,8 @@ export const Contact = () => {
     setFormData({
       name: "",
       email: "",
-      inquiryType: "",
+      serviceType: "",
+      sport: "",
       message: ""
     });
     setIsSubmitting(false);
@@ -95,23 +97,35 @@ export const Contact = () => {
                 <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="john@example.com" className="bg-background border-border focus:border-primary" />
               </div>
               <div>
-                <label htmlFor="inquiryType" className="block font-body text-sm font-medium text-foreground mb-2">
-                  Inquiry Type
+                <label htmlFor="serviceType" className="block font-body text-sm font-medium text-foreground mb-2">
+                  Service Type
                 </label>
-                <Select value={formData.inquiryType} onValueChange={(value) => setFormData(prev => ({ ...prev, inquiryType: value }))}>
+                <Select value={formData.serviceType} onValueChange={(value) => setFormData(prev => ({ ...prev, serviceType: value }))}>
                   <SelectTrigger className="bg-background border-border focus:border-primary">
-                    <SelectValue placeholder="Select an option" />
+                    <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent className="bg-background border-border">
                     <SelectItem value="single-game">Single Game ($50)</SelectItem>
                     <SelectItem value="season-pass">Season Pass ($350)</SelectItem>
                     <SelectItem value="team-package">Team Package ($200)</SelectItem>
-                    <SelectItem value="sport-basketball">Basketball</SelectItem>
-                    <SelectItem value="sport-football">Football</SelectItem>
-                    <SelectItem value="sport-soccer">Soccer</SelectItem>
-                    <SelectItem value="sport-baseball">Baseball</SelectItem>
-                    <SelectItem value="sport-other">Other Sport</SelectItem>
-                    <SelectItem value="other">Other Inquiry</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label htmlFor="sport" className="block font-body text-sm font-medium text-foreground mb-2">
+                  Sport
+                </label>
+                <Select value={formData.sport} onValueChange={(value) => setFormData(prev => ({ ...prev, sport: value }))}>
+                  <SelectTrigger className="bg-background border-border focus:border-primary">
+                    <SelectValue placeholder="Select a sport" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-background border-border">
+                    <SelectItem value="basketball">Basketball</SelectItem>
+                    <SelectItem value="football">Football</SelectItem>
+                    <SelectItem value="soccer">Soccer</SelectItem>
+                    <SelectItem value="baseball">Baseball</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
