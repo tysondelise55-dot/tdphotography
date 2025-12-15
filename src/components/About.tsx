@@ -1,11 +1,20 @@
 import { Camera, Zap, Heart } from "lucide-react";
+import aboutPhoto from "@/assets/about-photo.jpg";
+
 export const About = () => {
   return <section id="about" className="py-20 md:py-32 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Stats / Visual Side */}
           <div className="order-2 lg:order-1">
-            
+            <div className="relative">
+              <img 
+                src={aboutPhoto} 
+                alt="Basketball player walkout - sports photography by TD Photography" 
+                className="w-full h-auto rounded-lg shadow-2xl"
+              />
+              <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-foreground/10" />
+            </div>
           </div>
 
           {/* Content Side */}
