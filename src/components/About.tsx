@@ -1,6 +1,5 @@
 import { Camera, Zap, Heart } from "lucide-react";
 import aboutPhoto from "@/assets/about-photo.jpg";
-
 export const About = () => {
   return <section id="about" className="py-20 md:py-32 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -8,11 +7,7 @@ export const About = () => {
           {/* Stats / Visual Side */}
           <div className="order-2 lg:order-1">
             <div className="relative">
-              <img 
-                src={aboutPhoto} 
-                alt="Basketball player walkout - sports photography by TD Photography" 
-                className="w-full h-auto rounded-lg shadow-2xl"
-              />
+              <img src={aboutPhoto} alt="Basketball player walkout - sports photography by TD Photography" className="w-full h-auto rounded-lg shadow-2xl" />
               <div className="absolute inset-0 rounded-lg ring-1 ring-inset ring-foreground/10" />
             </div>
           </div>
@@ -27,15 +22,8 @@ export const About = () => {
               <br />
               <span className="text-primary">Focused.</span>
             </h2>
-            <p className="font-body text-lg text-muted-foreground leading-relaxed mb-6">
-              I'm a 14-year-old sports photographer with a passion for capturing the intensity, 
-              emotion, and raw energy of athletic competition. What started as a hobby at my 
-              brother's soccer games has grown into a serious pursuit.
-            </p>
-            <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">
-              I've shot football, basketball, soccer, baseball, track, and more. Every game 
-              teaches me something new, and I'm always pushing to get that perfect shot.
-            </p>
+            <p className="font-body text-lg text-muted-foreground leading-relaxed mb-6">I'm a 14-year-old sports photographer with a passion for capturing the intensity, emotion, and raw energy of athletic competition. What started as a requirement for a class in freshman year has grown into a serious pursuit.</p>
+            <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">I've shot football, basketball, soccer, and more. Every game teaches me something new, and I'm always pushing to get that perfect shot.</p>
 
             {/* Values */}
             <div className="space-y-4">
