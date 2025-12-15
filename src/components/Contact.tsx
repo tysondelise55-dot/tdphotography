@@ -62,7 +62,7 @@ export const Contact = () => {
                 </div>
                   <p className="font-display text-lg text-foreground tracking-wider">Contact</p>
                   <a href="mailto:contact@tdphotography.com" className="font-body text-muted-foreground hover:text-primary transition-colors">tysondelise55@gmail.com
-317-833-5049</a>
+ 317-833-5049</a>
               </div>
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-foreground rounded-lg flex items-center justify-center flex-shrink-0">
