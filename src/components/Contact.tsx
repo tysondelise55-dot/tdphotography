@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail, MapPin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 export const Contact = () => {
@@ -12,6 +13,7 @@ export const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    inquiryType: "",
     message: ""
   });
   const handleSubmit = async (e: React.FormEvent) => {
@@ -27,6 +29,7 @@ export const Contact = () => {
     setFormData({
       name: "",
       email: "",
+      inquiryType: "",
       message: ""
     });
     setIsSubmitting(false);
@@ -90,6 +93,27 @@ export const Contact = () => {
                   Email Address
                 </label>
                 <Input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="john@example.com" className="bg-background border-border focus:border-primary" />
+              </div>
+              <div>
+                <label htmlFor="inquiryType" className="block font-body text-sm font-medium text-foreground mb-2">
+                  Inquiry Type
+                </label>
+                <Select value={formData.inquiryType} onValueChange={(value) => setFormData(prev => ({ ...prev, inquiryType: value }))}>
+                  <SelectTrigger className="bg-background border-border focus:border-primary">
+                    <SelectValue placeholder="Select an option" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-background border-border">
+                    <SelectItem value="single-game">Single Game ($50)</SelectItem>
+                    <SelectItem value="season-pass">Season Pass ($350)</SelectItem>
+                    <SelectItem value="team-package">Team Package ($200)</SelectItem>
+                    <SelectItem value="sport-basketball">Basketball</SelectItem>
+                    <SelectItem value="sport-football">Football</SelectItem>
+                    <SelectItem value="sport-soccer">Soccer</SelectItem>
+                    <SelectItem value="sport-baseball">Baseball</SelectItem>
+                    <SelectItem value="sport-other">Other Sport</SelectItem>
+                    <SelectItem value="other">Other Inquiry</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
               <div>
                 <label htmlFor="message" className="block font-body text-sm font-medium text-foreground mb-2">
