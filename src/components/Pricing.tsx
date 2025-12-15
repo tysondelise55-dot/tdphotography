@@ -50,27 +50,27 @@ export const Pricing = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 md:py-32 bg-muted">
+    <section id="pricing" className="py-24 md:py-40 bg-muted">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <p className="font-body text-sm uppercase tracking-[0.3em] text-primary mb-2">
+        <div className="text-center mb-20">
+          <p className="font-body text-base uppercase tracking-[0.3em] text-primary mb-3">
             Packages
           </p>
-          <h2 className="section-title text-foreground">
+          <h2 className="section-title text-foreground text-5xl md:text-6xl">
             Simple Pricing
           </h2>
-          <p className="font-body text-lg text-muted-foreground max-w-xl mx-auto mt-4">
+          <p className="font-body text-xl text-muted-foreground max-w-2xl mx-auto mt-6">
             Affordable rates for quality sports photography. All packages include professional editing.
           </p>
         </div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {packages.map((pkg, index) => (
             <div
               key={pkg.name}
-              className={`relative bg-background rounded-lg p-6 md:p-8 shadow-sm opacity-0 animate-fade-up ${
+              className={`relative bg-background rounded-xl p-8 md:p-10 shadow-sm opacity-0 animate-fade-up ${
                 pkg.popular ? "ring-2 ring-primary" : ""
               }`}
               style={{
@@ -79,35 +79,35 @@ export const Pricing = () => {
               }}
             >
               {pkg.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-primary text-primary-foreground text-xs font-semibold uppercase tracking-wider px-4 py-1 rounded-full">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <span className="bg-primary text-primary-foreground text-sm font-semibold uppercase tracking-wider px-5 py-1.5 rounded-full">
                     Most Popular
                   </span>
                 </div>
               )}
 
-              <div className="text-center mb-6">
-                <h3 className="font-display text-2xl tracking-wider text-foreground mb-2">
+              <div className="text-center mb-8">
+                <h3 className="font-display text-3xl tracking-wider text-foreground mb-3">
                   {pkg.name}
                 </h3>
-                <p className="font-body text-sm text-muted-foreground mb-4">
+                <p className="font-body text-base text-muted-foreground mb-5">
                   {pkg.description}
                 </p>
                 <div className="flex items-baseline justify-center gap-1">
-                  <span className="font-display text-5xl text-foreground">{pkg.price}</span>
+                  <span className="font-display text-6xl text-foreground">{pkg.price}</span>
                   {pkg.name === "Season Pass" && (
-                    <span className="font-body text-sm text-muted-foreground">/season</span>
+                    <span className="font-body text-base text-muted-foreground">/season</span>
                   )}
                 </div>
               </div>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-4 mb-10">
                 {pkg.features.map((feature) => (
                   <li key={feature} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-primary" />
+                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-4 h-4 text-primary" />
                     </div>
-                    <span className="font-body text-sm text-foreground">{feature}</span>
+                    <span className="font-body text-base text-foreground">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -124,7 +124,7 @@ export const Pricing = () => {
           ))}
         </div>
 
-        <p className="font-body text-sm text-muted-foreground text-center mt-8">
+        <p className="font-body text-base text-muted-foreground text-center mt-12">
           Custom packages available. Contact me for special requests or large events.
         </p>
       </div>
