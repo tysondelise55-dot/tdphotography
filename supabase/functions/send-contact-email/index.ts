@@ -117,13 +117,14 @@ const handler = async (req: Request): Promise<Response> => {
     // Forward to n8n Webhook
     try {
       console.log("Forwarding to n8n webhook...");
-      fetch('https://n8n.delisedigital.com/webhook-test/e7c174ad-e398-427d-9339-82561c24b922', {
+      await fetch('https://n8n.delisedigital.com/webhook-test/e7c174ad-e398-427d-9339-82561c24b922', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, athleteName, eventDate, eventTime, location, serviceType, sport, message }),
-      }).catch(err => console.error("Error forwarding to n8n:", err));
+      });
     } catch (err) {
-      console.error("Failed to initiate n8n webhook:", err);
+      console.error("Failed to forward to n8n webhook:", err);
+      // We don't throw here to avoid failing the main email flow
     }
 
     // Email to photographer (Tyson)
