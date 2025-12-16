@@ -7,6 +7,7 @@ import { Mail, MapPin, Send, Calendar, Clock, User, MapPinned } from "lucide-rea
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
+
 export const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,6 +33,8 @@ export const Contact = () => {
       });
 
       if (error) throw error;
+
+
 
       toast({
         title: "Booking Request Sent!",
@@ -82,7 +85,7 @@ export const Contact = () => {
               <span className="text-primary">Your Game</span>
             </h2>
             <p className="font-body text-lg text-muted-foreground leading-relaxed mb-8">
-              Have an upcoming game or event? Want to book a session? Send me a message 
+              Have an upcoming game or event? Want to book a session? Send me a message
               and let's make it happen. My parent will help coordinate all bookings.
             </p>
 
@@ -121,30 +124,30 @@ export const Contact = () => {
                   <label htmlFor="name" className="block font-body text-sm font-medium text-foreground mb-2">
                     Your Name
                   </label>
-                  <Input 
-                    id="name" 
-                    name="name" 
-                    type="text" 
-                    required 
-                    value={formData.name} 
-                    onChange={handleChange} 
-                    placeholder="John Smith" 
-                    className="bg-background border-border focus:border-primary" 
+                  <Input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="John Smith"
+                    className="bg-background border-border focus:border-primary"
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block font-body text-sm font-medium text-foreground mb-2">
                     Email Address
                   </label>
-                  <Input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    required 
-                    value={formData.email} 
-                    onChange={handleChange} 
-                    placeholder="john@example.com" 
-                    className="bg-background border-border focus:border-primary" 
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="john@example.com"
+                    className="bg-background border-border focus:border-primary"
                   />
                 </div>
               </div>
@@ -155,15 +158,15 @@ export const Contact = () => {
                   <User className="w-4 h-4 inline mr-1" />
                   Athlete Name
                 </label>
-                <Input 
-                  id="athleteName" 
-                  name="athleteName" 
-                  type="text" 
-                  required 
-                  value={formData.athleteName} 
-                  onChange={handleChange} 
-                  placeholder="Name of the athlete" 
-                  className="bg-background border-border focus:border-primary" 
+                <Input
+                  id="athleteName"
+                  name="athleteName"
+                  type="text"
+                  required
+                  value={formData.athleteName}
+                  onChange={handleChange}
+                  placeholder="Name of the athlete"
+                  className="bg-background border-border focus:border-primary"
                 />
               </div>
 
@@ -174,14 +177,14 @@ export const Contact = () => {
                     <Calendar className="w-4 h-4 inline mr-1" />
                     Event Date
                   </label>
-                  <Input 
-                    id="eventDate" 
-                    name="eventDate" 
-                    type="date" 
-                    required 
-                    value={formData.eventDate} 
-                    onChange={handleChange} 
-                    className="bg-background border-border focus:border-primary" 
+                  <Input
+                    id="eventDate"
+                    name="eventDate"
+                    type="date"
+                    required
+                    value={formData.eventDate}
+                    onChange={handleChange}
+                    className="bg-background border-border focus:border-primary"
                   />
                 </div>
                 <div>
@@ -189,14 +192,14 @@ export const Contact = () => {
                     <Clock className="w-4 h-4 inline mr-1" />
                     Event Time
                   </label>
-                  <Input 
-                    id="eventTime" 
-                    name="eventTime" 
-                    type="time" 
-                    required 
-                    value={formData.eventTime} 
-                    onChange={handleChange} 
-                    className="bg-background border-border focus:border-primary" 
+                  <Input
+                    id="eventTime"
+                    name="eventTime"
+                    type="time"
+                    required
+                    value={formData.eventTime}
+                    onChange={handleChange}
+                    className="bg-background border-border focus:border-primary"
                   />
                 </div>
               </div>
@@ -207,15 +210,15 @@ export const Contact = () => {
                   <MapPinned className="w-4 h-4 inline mr-1" />
                   Location
                 </label>
-                <Input 
-                  id="location" 
-                  name="location" 
-                  type="text" 
-                  required 
-                  value={formData.location} 
-                  onChange={handleChange} 
-                  placeholder="Field/Gym name and address" 
-                  className="bg-background border-border focus:border-primary" 
+                <Input
+                  id="location"
+                  name="location"
+                  type="text"
+                  required
+                  value={formData.location}
+                  onChange={handleChange}
+                  placeholder="Field/Gym name and address"
+                  className="bg-background border-border focus:border-primary"
                 />
               </div>
 
@@ -261,15 +264,15 @@ export const Contact = () => {
                 <label htmlFor="message" className="block font-body text-sm font-medium text-foreground mb-2">
                   Additional Details
                 </label>
-                <Textarea 
-                  id="message" 
-                  name="message" 
-                  required 
-                  value={formData.message} 
-                  onChange={handleChange} 
-                  placeholder="Tell me about your game or event..." 
-                  rows={4} 
-                  className="bg-background border-border focus:border-primary resize-none" 
+                <Textarea
+                  id="message"
+                  name="message"
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell me about your game or event..."
+                  rows={4}
+                  className="bg-background border-border focus:border-primary resize-none"
                 />
               </div>
 
