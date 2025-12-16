@@ -5,6 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail, MapPin, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 export const Contact = () => {
   const {
     toast
@@ -21,20 +22,34 @@ export const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. I'll get back to you soon!"
-    });
-    setFormData({
-      name: "",
-      email: "",
-      serviceType: "",
-      sport: "",
-      message: ""
-    });
-    setIsSubmitting(false);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-contact-email', {
+        body: formData,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message Sent!",
+        description: "Thanks for reaching out. I'll get back to you soon!"
+      });
+      setFormData({
+        name: "",
+        email: "",
+        serviceType: "",
+        sport: "",
+        message: ""
+      });
+    } catch (error: any) {
+      console.error("Error sending message:", error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
